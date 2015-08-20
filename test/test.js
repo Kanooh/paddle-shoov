@@ -8,9 +8,14 @@ var capabilities = {
  'os' : 'Windows',
  'os_version' : '7',
  'resolution' : '1280x1024'
-}
+};
 
 var testName = 'browserstack';
+var baseUrl = process.env.base_url || undefined;
+
+if (typeof baseUrl === 'undefined') {
+  throw new Error('Base url not defined.');
+}
 
 describe('Kanooh test', function() {
 
@@ -27,7 +32,7 @@ describe('Kanooh test', function() {
 
   it('Should show the frontpage', function(done) {
     client
-      .url('http://www.kanooh.be')
+      .url(baseUrl)
       .webdrivercss(testName, {
         name: 'frontpage'
       }, shoovWebdrivercss.processResults)
