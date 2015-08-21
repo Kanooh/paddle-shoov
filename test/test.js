@@ -19,7 +19,6 @@ if (typeof baseUrl === 'undefined') {
 
 describe('Kanooh test', function() {
 
-  this.timeout(99999999);
   var client = {};
 
   before(function(done){
